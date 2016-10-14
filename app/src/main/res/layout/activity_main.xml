@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="motacojo.mbds.fr.easyorder.MainActivity">
+
+    <TextView
+        android:text="Bienvenue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mbds_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
+        android:id="@+id/tv_Bienvenue" />
+
+    <TextView
+        android:text="Veuillez sélectionner &quot;s'enregistrer&quot; pour créer un compte ou &quot;se connecter&quot; si vous en avez déjà un. "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_Message_Connexion"
+        android:layout_below="@+id/tv_Bienvenue"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="13dp"
+        android:textAlignment="center" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/mbds_logo"
+        android:layout_marginTop="47dp"
+        android:id="@+id/mbds_logo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="S'enregistrer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_Message_Connexion"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        android:id="@+id/btn_SignUp"
+        android:elevation="0dp" />
+
+    <Button
+        android:text="Se connecter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_Login"
+        android:layout_below="@+id/btn_SignUp"
+        android:layout_alignStart="@+id/btn_SignUp" />
+
+</RelativeLayout>
