@@ -18,14 +18,14 @@
         android:layout_below="@+id/mbds_logo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="29dp"
-        android:id="@+id/tv_Bienvenue" />
+        android:id="@+id/tv_Bienvenue_Main" />
 
     <TextView
         android:text="Veuillez sélectionner &quot;s'enregistrer&quot; pour créer un compte ou &quot;se connecter&quot; si vous en avez déjà un. "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tv_Message_Connexion"
-        android:layout_below="@+id/tv_Bienvenue"
+        android:id="@+id/tv_MessageConnexion_Main"
+        android:layout_below="@+id/tv_Bienvenue_Main"
         android:layout_alignParentStart="true"
         android:layout_marginTop="13dp"
         android:textAlignment="center" />
@@ -43,18 +43,23 @@
         android:text="S'enregistrer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_Message_Connexion"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="23dp"
-        android:id="@+id/btn_SignUp"
-        android:elevation="0dp" />
+        android:id="@+id/btn_SignUp_Main"
+        android:elevation="0dp"
+        android:layout_below="@+id/tv_MessageConnexion_Main"
+        android:layout_marginTop="22dp"
+        android:layout_alignEnd="@+id/mbds_logo"
+        android:layout_alignStart="@+id/mbds_logo"
+        android:background="@android:color/holo_blue_light" />
 
     <Button
         android:text="Se connecter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_Login"
-        android:layout_below="@+id/btn_SignUp"
-        android:layout_alignStart="@+id/btn_SignUp" />
+        android:id="@+id/btn_Login_Main"
+        android:background="?attr/colorControlHighlight"
+        android:layout_below="@+id/btn_SignUp_Main"
+        android:layout_alignStart="@+id/btn_SignUp_Main"
+        android:layout_marginTop="14dp"
+        android:layout_alignEnd="@+id/btn_SignUp_Main" />
 
 </RelativeLayout>

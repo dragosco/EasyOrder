@@ -15,6 +15,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".RegisterActivity"
+            android:label="RegisterActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="motacojo.mbds.fr.easyorder.MainActivity" />
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:label="LoginActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="motacojo.mbds.fr.easyorder.MainActivity" />
+        </activity>
+        <activity
+            android:name=".WelcomeActivity"
+            android:label="WelcomeActivity"
+            android:parentActivityName=".LoginActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="motacojo.mbds.fr.easyorder.LoginActivity" />
+        </activity>
     </application>
 
 </manifest>
