@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">"Easy Order "</string>
     <string name="title_activity_register">RegisterActivity</string>
+    <string name="please_wait">Veuillez patienter</string>
+    <string name="inscription_ok">"Inscription réussie"</string>
 </resources>
