@@ -226,8 +226,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         p.setId(user.getString("id"));
 
                         Intent intent = new Intent(LoginActivity.this, WelcomeActivity.class);
-                        intent.putExtra("prenom",p.getPrenom());
-                        intent.putExtra("nom",p.getNom());
+                        Bundle bundle = new Bundle();
+                        bundle.putString("prenom",p.getPrenom());
+                        bundle.putString("nom",p.getNom());
+                        intent.putExtras(bundle);
 
                         startActivity(intent);
                     } else {
