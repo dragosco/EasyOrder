@@ -31,12 +31,12 @@ import motacojo.mbds.fr.entities.Person;
 import motacojo.mbds.fr.outils.FormValidator;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
-    EditText nom        = (EditText)findViewById(R.id.input_Nom_Register);
-    EditText prenom     = (EditText)findViewById(R.id.input_Prenom_Register);
-    EditText tel        = (EditText)findViewById(R.id.input_Tel_Register);
-    EditText email      = (EditText)findViewById(R.id.input_Email_Register);
-    EditText mdp        = (EditText)findViewById(R.id.input_Mdp_Register);
-    EditText mdpConfirm = (EditText)findViewById(R.id.input_MdpConfirm_Register);
+    private EditText nom;
+    private EditText prenom;
+    private EditText tel;
+    private EditText email;
+    private EditText mdp;
+    private EditText mdpConfirm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +44,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_register);
         Button btnSign = (Button)findViewById(R.id.btn_SignUp_Register);
         btnSign.setOnClickListener(this);
+
+        nom        = (EditText)findViewById(R.id.input_Nom_Register);
+        prenom     = (EditText)findViewById(R.id.input_Prenom_Register);
+        tel        = (EditText)findViewById(R.id.input_Tel_Register);
+        email      = (EditText)findViewById(R.id.input_Email_Register);
+        mdp        = (EditText)findViewById(R.id.input_Mdp_Register);
+        mdpConfirm = (EditText)findViewById(R.id.input_MdpConfirm_Register);
 
         FormValidator fdNom         = new FormValidator(nom);
         FormValidator fdPrenom      = new FormValidator(prenom);
@@ -63,22 +70,14 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 isValide(mdp)) {
             switch(v.getId()) {
                 case R.id.btn_SignUp_Register:
-                /*String txt_nom = ((EditText)findViewById(R.id.input_Nom_Register)).getText().toString();
-                String txt_prenom = ((EditText)findViewById(R.id.input_Nom_Register)).getText().toString();
-                String txt_sexe = "";
-                String txt_telephone = ((EditText)findViewById(R.id.input_Tel_Register)).getText().toString();
-                String txt_email = ((EditText)findViewById(R.id.input_Email_Register)).getText().toString();
-                String txt_pass = ((EditText)findViewById(R.id.input_Mdp_Register)).getText().toString();*/
-
-                    String txt_nom = "nom";
-                    String txt_prenom = "prenom";
+                    String txt_nom =  nom.getText().toString();
+                    String txt_prenom = prenom.getText().toString();
                     String txt_sexe = "Masculin";
-                    String txt_telephone = "123456789";
-                    String txt_email = "test@gmail.com";
-                    String txt_pass = "1234";
+                    String txt_telephone = tel.getText().toString();
+                    String txt_email = email.getText().toString();
+                    String txt_pass = mdp.getText().toString();
 
                     Person person = new Person(txt_nom, txt_prenom, txt_sexe, txt_telephone, txt_email, txt_pass);
-                    //validation des champs
 
                     //enregistrer lutilisateur
                     RegisterUser ru = new RegisterUser();

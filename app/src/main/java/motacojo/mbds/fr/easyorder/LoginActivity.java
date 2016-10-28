@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
@@ -38,13 +39,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         switch(v.getId()) {
             case R.id.btn_Login_Login:
-                /*String txt_email = ((EditText)findViewById(R.id.input_Email_Login)).getText().toString();
-                String txt_password = ((EditText)findViewById(R.id.input_Mdp_Login)).getText().toString();*/
-
-                String txt_email = "test@gmail.com";
-                String txt_password = "1234";
-
-                //validation des champs
+                String txt_email = ((EditText)findViewById(R.id.input_Email_Login)).getText().toString();
+                String txt_password = ((EditText)findViewById(R.id.input_Mdp_Login)).getText().toString();
 
                 //enregistrer lutilisateur
                 ValidateLogin validateLogin = new ValidateLogin();
@@ -181,7 +177,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
 
         @Override
-        protected void onPostExecute(String result) {
+            protected void onPostExecute(String result) {
             super.onPostExecute(result);
             Log.e("ValidateLogin", "onPostExecute");
             showProgressDialog(false);
