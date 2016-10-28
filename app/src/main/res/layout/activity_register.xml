@@ -10,40 +10,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="motacojo.mbds.fr.easyorder.RegisterActivity">
 
-    <RadioButton
-        android:text="Féminin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/radioBtn_Masculin_Register"
-        android:layout_toEndOf="@+id/radioBtn_Masculin_Register"
-        android:layout_marginStart="11dp"
-        android:id="@+id/radioBtn_Feminin_Register" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:layout_below="@+id/input_Email_Register"
-        android:layout_alignStart="@+id/input_Email_Register"
-        android:id="@+id/input_Mdp_Register"
-        android:hint="Mot de passe"
-        android:textSize="14sp"
-        android:layout_alignParentEnd="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:layout_marginTop="11dp"
-        android:id="@+id/input_Email_Register"
-        android:layout_below="@+id/input_Tel_Register"
-        android:layout_alignStart="@+id/input_Tel_Register"
-        android:hint="E-mail"
-        android:layout_alignParentEnd="true"
-        android:textSize="14sp" />
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -68,26 +34,6 @@
         android:layout_alignParentEnd="true"
         android:textSize="14sp" />
 
-    <RadioButton
-        android:text="Masculin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/radioBtn_Masculin_Register"
-        android:layout_below="@+id/input_Prenom_Register"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="phone"
-        android:ems="10"
-        android:id="@+id/input_Tel_Register"
-        android:hint="Téléphone portable"
-        android:layout_below="@+id/radioBtn_Feminin_Register"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:textSize="14sp" />
-
     <TextView
         android:text="Veuillez saisir vos informations"
         android:layout_width="wrap_content"
@@ -96,6 +42,17 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="26dp" />
+
+    <Button
+        android:text="S'enregistrer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_SignUp_Register"
+        android:layout_below="@+id/input_MdpConfirm_Register"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="24dp"
+        android:layout_alignParentEnd="true"
+        android:background="@android:color/holo_green_light" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -108,19 +65,72 @@
         android:padding="10dp"
         android:hint="Votre nom"
         android:textSize="14sp"
+        android:layout_marginTop="22dp"
         android:layout_below="@+id/tv_Message_Register"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="41dp"
         android:layout_alignParentEnd="true" />
 
-    <Button
-        android:text="S'enregistrer"
+    <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_SignUp_Register"
-        android:layout_below="@+id/input_MdpConfirm_Register"
+        android:layout_below="@+id/input_Prenom_Register"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="24dp"
         android:layout_alignParentEnd="true"
-        android:background="@android:color/holo_green_light" />
+        android:id="@+id/radioGroup_Sexe_register"
+        android:checkedButton="@+id/radioBtn_Masculin_Register">
+
+        <RadioButton
+            android:text="Masculin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioBtn_Masculin_Register"
+            android:layout_below="@+id/input_Prenom_Register"
+            android:layout_alignEnd="@+id/radioGroup"
+            android:layout_marginEnd="22dp"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Féminin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioBtn_Feminin_Register"
+            android:layout_marginEnd="66dp"
+            android:layout_below="@+id/input_Prenom_Register"
+            android:layout_alignParentEnd="true" />
+
+    </RadioGroup>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:ems="10"
+        android:id="@+id/input_Tel_Register"
+        android:hint="Téléphone portable"
+        android:textSize="14sp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/input_Email_Register"
+        android:hint="E-mail"
+        android:textSize="14sp"
+        android:layout_below="@+id/input_Tel_Register"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/input_Mdp_Register"
+        android:hint="Mot de passe"
+        android:textSize="14sp"
+        android:layout_below="@+id/input_Email_Register"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>
