@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+
+    <TextView
+        android:text="John Doe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_user_list"
+        android:textColor="@android:color/black"
+        android:layout_alignTop="@+id/imgBtn_status_list"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:layout_width="20dip"
+        android:layout_height="20dip"
+        app:srcCompat="@mipmap/position_icon"
+        android:id="@+id/img_status_list"
+        android:layout_below="@+id/tv_user_list"
+        android:layout_alignStart="@+id/tv_user_list"
+        android:layout_alignBottom="@+id/tv_status_list" />
+
+    <TextView
+        android:text="Connecté"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_status_list"
+        android:textSize="10sp"
+        android:layout_marginLeft="23dp"
+        android:layout_below="@+id/tv_user_list"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@mipmap/delete_icon"
+        android:layout_marginEnd="29dp"
+        android:id="@+id/imageButton5"
+        android:background="@android:color/transparent"
+        android:layout_alignTop="@+id/tv_user_list"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@mipmap/status_icon"
+        android:layout_marginTop="44dp"
+        android:id="@+id/imgBtn_status_list"
+        android:background="@android:color/transparent"
+        android:layout_marginStart="29dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>
