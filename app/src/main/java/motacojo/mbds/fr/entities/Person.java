@@ -54,6 +54,10 @@ public class Person {
         this.prenom = prenom;
     }
 
+    public String getFullName() {
+        return this.prenom + " " + this.nom;
+    }
+
     public String getSexe() {
         return sexe;
     }

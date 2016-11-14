@@ -3,4 +3,6 @@
     <string name="title_activity_register">RegisterActivity</string>
     <string name="please_wait">Veuillez patienter</string>
     <string name="inscription_ok">"Inscription réussie"</string>
+    <string name="online">"Connecté"</string>
+    <string name="offline">"Deconnecté"</string>
 </resources>
