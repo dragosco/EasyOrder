@@ -31,6 +31,8 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
+        Log.e("LoadPeopleList", "onCreate");
+
         LoadPeopleList ru = new LoadPeopleList();
         ru.execute();
     }
@@ -110,24 +112,26 @@ public class ListActivity extends AppCompatActivity {
 
                 for(int i = 0; i < list.length(); i++) {
                     JSONObject person = list.getJSONObject(i);
+                    Log.e("ActivityList", person.toString());
                     Person p = new Person(
-                            person.getString("nom"),
-                            person.getString("prenom"),
-                            person.getString("sexe"),
-                            person.getString("telephone"),
-                            person.getString("email"),
-                            person.getString("password"));
-                    p.setConnected(person.getBoolean("connected"));
-                    p.setId(person.getString("id"));
+                            person.optString("nom", "John"), // person.getString("nom"),
+                            person.optString("prenom", "John"), //person.getString("prenom"),
+                            person.optString("sexe", "John"), //person.getString("sexe"),
+                            person.optString("telephone", "John"), //person.getString("telephone"),
+                            person.optString("email", "John"), //person.getString("email"),
+                            person.optString("password", "John")); //person.getString("password"));
+                    p.setConnected(person.optBoolean("connected", false)); // getBoolean("connected"));
+                    p.setId(person.optString("id", "99999999999999999999999")); //getString("id"));
 
                     people.add(p);
-                }  Log.e("LoadPeopleList", "pas de resultat");
+                }
             } catch (JSONException e) {
                 Log.e("LoadPeopleList", "erreur");
                 e.printStackTrace();
             }
 
             PersonItemAdapter adapter = new PersonItemAdapter(ListActivity.this, people);
+            Log.e("ListActivity", "people length " + people.size());
             lst.setAdapter(adapter);
         }
     }

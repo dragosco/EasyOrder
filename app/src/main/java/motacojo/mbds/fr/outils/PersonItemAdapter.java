@@ -47,7 +47,7 @@ public class PersonItemAdapter extends BaseAdapter {
 
         PersonViewHolder viewHolder = null;
         if(v==null){
-            v = View.inflate(context, R.layout.activity_list, null);
+            v = View.inflate(context, R.layout.item_list_layout, null);
             viewHolder = new PersonViewHolder();
             viewHolder.nom_prenom= (TextView)v.findViewById(R.id.tv_user_list);
             viewHolder.connected = (TextView)v.findViewById(R.id.tv_status_list);

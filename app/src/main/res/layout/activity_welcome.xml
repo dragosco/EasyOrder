@@ -31,4 +31,13 @@
         android:id="@+id/tv_User_Welcome"
         android:textSize="30sp"
         android:textStyle="normal|bold|italic" />
+
+    <Button
+        android:text="Voir liste d'utilisateurs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="63dp"
+        android:id="@+id/btn_versListUtilisateurs"
+        android:layout_below="@+id/tv_User_Welcome"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
