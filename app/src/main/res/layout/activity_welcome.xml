@@ -40,4 +40,12 @@
         android:id="@+id/btn_versListUtilisateurs"
         android:layout_below="@+id/tv_User_Welcome"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="VOIR LISTE DE PRODUITS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_versListUtilisateurs"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/btn_versListeProduits" />
 </RelativeLayout>

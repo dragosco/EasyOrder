@@ -41,7 +41,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="motacojo.mbds.fr.easyorder.LoginActivity" />
         </activity>
-        <activity android:name=".ListActivity"></activity>
+        <activity android:name=".ListActivity" />
+        <activity android:name=".ProductListActivity"></activity>
     </application>
 
 </manifest>

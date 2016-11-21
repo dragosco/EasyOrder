@@ -32,7 +32,7 @@ public class FormValidator {
                         pattern = Pattern.compile("^\\+(?:[0-9] ?){6,14}[0-9]$");
                         matcher = pattern.matcher(text.toString());
                         if (!matcher.matches()) {
-                            textView.setError("Le numéro de téléphone n'est pas valide.");
+                            textView.setError("Le numéro de téléphone n'est pas valide. Il doit être de la forme +336*********");
                         } else {
                             textView.setError(null);
                         }

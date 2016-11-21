@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/tv_productName_itemList" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/mbds_logo"
+        android:layout_below="@+id/tv_productName_itemList"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:id="@+id/img_productImage_itemList" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img_productImage_itemList"
+        android:layout_alignStart="@+id/tv_productName_itemList"
+        android:layout_marginTop="14dp"
+        android:id="@+id/tv_productDescr_itemList" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_productDescr_itemList"
+        android:layout_alignStart="@+id/img_productImage_itemList"
+        android:id="@+id/tv_productPrice_itemList" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_productDescr_itemList"
+        android:layout_toEndOf="@+id/tv_productPrice_itemList"
+        android:layout_marginStart="15dp"
+        android:id="@+id/tv_productCalories_itemList" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_productDescr_itemList"
+        android:layout_toEndOf="@+id/tv_productDescr_itemList"
+        android:id="@+id/tv_productType_itemList" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tv_productType_itemList"
+        android:layout_toEndOf="@+id/tv_productType_itemList"
+        android:id="@+id/tv_productDiscount_itemList" />
+</RelativeLayout>
