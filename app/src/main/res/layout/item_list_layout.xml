@@ -42,7 +42,8 @@
         android:id="@+id/imageButton5"
         android:background="@android:color/transparent"
         android:layout_alignTop="@+id/tv_user_list"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:onClick=""/>
 
     <ImageButton
         android:layout_width="wrap_content"

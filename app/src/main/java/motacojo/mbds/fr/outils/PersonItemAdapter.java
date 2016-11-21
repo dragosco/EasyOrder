@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.List;
@@ -19,10 +20,11 @@ public class PersonItemAdapter extends BaseAdapter {
 
     private Context context;
     public List<Person> people;
-
-    public PersonItemAdapter(Context context, List<Person> people) {
+    private View.OnClickListener listener;
+    public PersonItemAdapter(Context context, List<Person> people, View.OnClickListener listener) {
         this.context = context;
         this.people = people;
+        this.listener = listener;
     }
 
     @Override
@@ -51,6 +53,7 @@ public class PersonItemAdapter extends BaseAdapter {
             viewHolder = new PersonViewHolder();
             viewHolder.nom_prenom= (TextView)v.findViewById(R.id.tv_user_list);
             viewHolder.connected = (TextView)v.findViewById(R.id.tv_status_list);
+            viewHolder.imageButton = (ImageButton) v.findViewById(R.id.imageButton5);
             v.setTag(viewHolder);
         }
         else{
@@ -59,12 +62,15 @@ public class PersonItemAdapter extends BaseAdapter {
         Person person = people.get(position);
         viewHolder.nom_prenom.setText(person.getFullName());
         viewHolder.connected.setText(person.isConnected() ? R.string.online : R.string.offline);
+        viewHolder.imageButton.setOnClickListener(listener);
+        viewHolder.imageButton.setTag(person.getId());
         return v;
     }
 
     class PersonViewHolder{
         TextView nom_prenom;
         TextView connected;
+        ImageButton imageButton;
     }
 
 }

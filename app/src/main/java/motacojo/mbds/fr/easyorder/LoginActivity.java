@@ -213,7 +213,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 //Traiter la person
                 if (result != null) {
                     if((resultJSON.getBoolean("success"))) {
-                        Toast.makeText(getApplicationContext(),R.string.inscription_ok, Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getApplicationContext(),R.string.inscription_ok, Toast.LENGTH_LONG).show();
                         JSONObject user = resultJSON.getJSONObject("user");
                         Person p = new Person(
                                 user.getString("nom"),

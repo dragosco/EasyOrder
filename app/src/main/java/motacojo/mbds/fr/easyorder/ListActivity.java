@@ -6,11 +6,13 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
@@ -25,11 +27,13 @@ import java.util.List;
 import motacojo.mbds.fr.entities.Person;
 import motacojo.mbds.fr.outils.PersonItemAdapter;
 
-public class ListActivity extends AppCompatActivity {
+public class ListActivity extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+
+        //ListView listView = (ListView)findViewById(R.id.listView);
 
         Log.e("LoadPeopleList", "onCreate");
 
@@ -59,6 +63,13 @@ public class ListActivity extends AppCompatActivity {
                 progressDialog.dismiss();
             }
         }
+    }
+
+    @Override
+    public void onClick(View v) {
+        System.out.println("TEST " + v.getTag());
+        DeleteWaiter deleteWaiter = new DeleteWaiter();
+        deleteWaiter.execute((String)v.getTag());
     }
 
     class LoadPeopleList extends AsyncTask<String,Void,String> {
@@ -106,7 +117,7 @@ public class ListActivity extends AppCompatActivity {
 
             //Traiter la liste de personnes
             try {
-                Toast.makeText(getApplicationContext(),R.string.inscription_ok, Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(),R.string.inscription_ok, Toast.LENGTH_LONG).show();
 
                 JSONArray list = new JSONArray(result);
 
@@ -130,9 +141,66 @@ public class ListActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            PersonItemAdapter adapter = new PersonItemAdapter(ListActivity.this, people);
+            PersonItemAdapter adapter = new PersonItemAdapter(ListActivity.this, people, ListActivity.this);
             Log.e("ListActivity", "people length " + people.size());
             lst.setAdapter(adapter);
+        }
+    }
+
+    class DeleteWaiter extends AsyncTask<String,Void,String> {
+
+        @Override
+        protected String doInBackground(String... params) {
+            try{
+                HttpClient client = new DefaultHttpClient();
+                String url = "http://95.142.161.35:1337/person/" + params[0];
+                HttpDelete delete = new HttpDelete(url);
+
+                delete.setHeader("Content-Type", "application/json");
+
+                HttpResponse response = client.execute(delete);
+
+                BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+
+                StringBuffer result = new StringBuffer();
+                String line = "";
+                while ((line = rd.readLine()) != null) {
+                    result.append(line);
+                }
+
+                return result.toString();
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            Log.e("DeleteWaiter", "onPreExecute");
+            showProgressDialog(true);
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+            Log.e("DeleteWaiter", "onPostExecute");
+            showProgressDialog(false);
+
+            try {
+                JSONObject resultJSON = new JSONObject(result);
+                if (result != null) {
+                    if(resultJSON.has("id")) {
+                        Toast.makeText(getApplicationContext(),R.string.delete_waiter_ok, Toast.LENGTH_LONG).show();
+                        //PersonItemAdapter personItemAdapter = PersonItemAdapter();
+                    } else {
+                        Toast.makeText(getApplicationContext(),"Une erreur s'est produite", Toast.LENGTH_LONG).show();
+                    }
+                }
+            } catch (JSONException e) {
+                Log.e("LoadPeopleList", "erreur");
+                e.printStackTrace();
+            }
         }
     }
 }
