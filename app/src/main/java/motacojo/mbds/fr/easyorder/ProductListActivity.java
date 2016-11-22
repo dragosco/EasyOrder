@@ -102,7 +102,7 @@ public class ProductListActivity extends AppCompatActivity {
             Log.e("LoadPeopleList", "onPostExecute");
             showProgressDialog(false);
 
-            ListView lst = (ListView)findViewById(R.id.listView);
+            ListView lst = (ListView)findViewById(R.id.listView_ProductList);
             List<Product> products = new ArrayList<Product>();
 
             //Traiter la liste de produits
