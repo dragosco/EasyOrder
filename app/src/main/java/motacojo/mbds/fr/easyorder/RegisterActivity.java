@@ -79,22 +79,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
                     Person person = new Person(txt_nom, txt_prenom, txt_sexe, txt_telephone, txt_email, txt_pass);
 
-                    //enregistrer lutilisateur
                     RegisterUser ru = new RegisterUser();
-                /*int corePoolSize = 60;
-                int maximumPoolSize = 80;
-                int keepAliveTime = 10;
-
-                BlockingQueue<Runnable> workQueue = new LinkedBlockingQueue<Runnable>(maximumPoolSize);
-                Executor threadPoolExecutor = new ThreadPoolExecutor(corePoolSize, maximumPoolSize, keepAliveTime, TimeUnit.SECONDS, workQueue);
-
-                if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.HONEYCOMB)
-                    ru.executeOnExecutor(threadPoolExecutor, person);
-                else*/
                     ru.execute(person);
 
-                    //redirectionner vers la page daccueil
-                    //startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                     break;
             }
         }
@@ -177,7 +164,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             Person person = people[0];
             try{
                 HttpClient client = new DefaultHttpClient();
-                String url = "http://95.142.161.35:1337/person/";
+                String url = "http://95.142.161.35:8080/person/";
                 HttpPost post = new HttpPost(url);
 
                 post.setHeader("Content-Type", "application/json");

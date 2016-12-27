@@ -15,5 +15,9 @@
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/listView_ProductList" />
+        android:divider="?attr/colorBackgroundFloating"
+        android:dividerHeight="10dp"
+        android:id="@+id/listView_ProductList"
+        android:background="@android:color/holo_green_light"
+        android:headerDividersEnabled="false" />
 </RelativeLayout>

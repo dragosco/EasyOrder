@@ -25,15 +25,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import motacojo.mbds.fr.entities.Person;
-import motacojo.mbds.fr.outils.PersonItemAdapter;
+import motacojo.mbds.fr.adapters.PersonItemAdapter;
 
-public class ListActivity extends AppCompatActivity implements View.OnClickListener {
+public class PersonListActivity extends AppCompatActivity implements View.OnClickListener {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
-
-        //ListView listView = (ListView)findViewById(R.id.listView);
 
         Log.e("LoadPeopleList", "onCreate");
 
@@ -77,7 +76,7 @@ public class ListActivity extends AppCompatActivity implements View.OnClickListe
         protected String doInBackground(String... champs) {
             try{
                 HttpClient client = new DefaultHttpClient();
-                String url = "http://95.142.161.35:1337/person/";
+                String url = "http://95.142.161.35:8080/person/";
                 HttpGet get = new HttpGet(url);
 
                 get.setHeader("Content-Type", "application/json");
@@ -117,7 +116,6 @@ public class ListActivity extends AppCompatActivity implements View.OnClickListe
 
             //Traiter la liste de personnes
             try {
-                //Toast.makeText(getApplicationContext(),R.string.inscription_ok, Toast.LENGTH_LONG).show();
 
                 JSONArray list = new JSONArray(result);
 
@@ -125,14 +123,14 @@ public class ListActivity extends AppCompatActivity implements View.OnClickListe
                     JSONObject person = list.getJSONObject(i);
                     Log.e("ActivityList", person.toString());
                     Person p = new Person(
-                            person.optString("nom", "John"), // person.getString("nom"),
-                            person.optString("prenom", "John"), //person.getString("prenom"),
-                            person.optString("sexe", "John"), //person.getString("sexe"),
-                            person.optString("telephone", "John"), //person.getString("telephone"),
-                            person.optString("email", "John"), //person.getString("email"),
-                            person.optString("password", "John")); //person.getString("password"));
-                    p.setConnected(person.optBoolean("connected", false)); // getBoolean("connected"));
-                    p.setId(person.optString("id", "99999999999999999999999")); //getString("id"));
+                            person.optString("nom", "John"),
+                            person.optString("prenom", "John"),
+                            person.optString("sexe", "John"),
+                            person.optString("telephone", "John"),
+                            person.optString("email", "John"),
+                            person.optString("password", "John"));
+                    p.setConnected(person.optBoolean("connected", false));
+                    p.setId(person.optString("id", "99999999999999999999999"));
 
                     people.add(p);
                 }
@@ -141,8 +139,8 @@ public class ListActivity extends AppCompatActivity implements View.OnClickListe
                 e.printStackTrace();
             }
 
-            PersonItemAdapter adapter = new PersonItemAdapter(ListActivity.this, people, ListActivity.this);
-            Log.e("ListActivity", "people length " + people.size());
+            PersonItemAdapter adapter = new PersonItemAdapter(PersonListActivity.this, people, PersonListActivity.this);
+            Log.e("PersonListActivity", "people length " + people.size());
             lst.setAdapter(adapter);
         }
     }
@@ -153,7 +151,7 @@ public class ListActivity extends AppCompatActivity implements View.OnClickListe
         protected String doInBackground(String... params) {
             try{
                 HttpClient client = new DefaultHttpClient();
-                String url = "http://95.142.161.35:1337/person/" + params[0];
+                String url = "http://95.142.161.35:8080/person/" + params[0];
                 HttpDelete delete = new HttpDelete(url);
 
                 delete.setHeader("Content-Type", "application/json");
@@ -192,7 +190,6 @@ public class ListActivity extends AppCompatActivity implements View.OnClickListe
                 if (result != null) {
                     if(resultJSON.has("id")) {
                         Toast.makeText(getApplicationContext(),R.string.delete_waiter_ok, Toast.LENGTH_LONG).show();
-                        //PersonItemAdapter personItemAdapter = PersonItemAdapter();
                     } else {
                         Toast.makeText(getApplicationContext(),"Une erreur s'est produite", Toast.LENGTH_LONG).show();
                     }

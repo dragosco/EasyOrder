@@ -80,7 +80,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         protected String doInBackground(String... champs) {
             try{
                 HttpClient client = new DefaultHttpClient();
-                String url = "http://95.142.161.35:1337/person/login";
+                String url = "http://95.142.161.35:8080/person/login";
                 HttpPost post = new HttpPost(url);
 
                 post.setHeader("Content-Type", "application/json");

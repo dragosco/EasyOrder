@@ -1,4 +1,4 @@
-package motacojo.mbds.fr.outils;
+package motacojo.mbds.fr.adapters;
 
 import android.content.Context;
 import android.view.View;
@@ -38,10 +38,7 @@ public class PersonItemAdapter extends BaseAdapter {
     }
 
     @Override
-    public long getItemId(int arg0) {
-        // TODO Auto-generated method stub
-        return 0;
-    }
+    public long getItemId(int arg0) { return 0; }
 
     @Override
     public View getView(int position, View convertView, ViewGroup arg2) {

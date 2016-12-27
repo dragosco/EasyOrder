@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -22,8 +21,8 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import motacojo.mbds.fr.adapters.ProductItemAdapter;
 import motacojo.mbds.fr.entities.Product;
-import motacojo.mbds.fr.outils.ProductItemAdapter;
 
 public class ProductListActivity extends AppCompatActivity {
 
@@ -67,7 +66,7 @@ public class ProductListActivity extends AppCompatActivity {
         protected String doInBackground(String... champs) {
             try{
                 HttpClient client = new DefaultHttpClient();
-                String url = "http://95.142.161.35:1337/product/";
+                String url = "http://95.142.161.35:8080/product/";
                 HttpGet get = new HttpGet(url);
 
                 get.setHeader("Content-Type", "application/json");
@@ -107,13 +106,11 @@ public class ProductListActivity extends AppCompatActivity {
 
             //Traiter la liste de produits
             try {
-                Toast.makeText(getApplicationContext(),R.string.inscription_ok, Toast.LENGTH_LONG).show();
 
                 JSONArray list = new JSONArray(result);
 
                 for(int i = 0; i < list.length(); i++) {
                     JSONObject product = list.getJSONObject(i);
-                    Log.e("ActivityList", product.toString());
                     Product p = new Product(
                             product.optString("name", "Produit Inconnu"),
                             product.optString("description", "Pas de description"),

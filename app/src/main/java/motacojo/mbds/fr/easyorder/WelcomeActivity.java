@@ -26,6 +26,8 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         btn_versListUtilisateurs.setOnClickListener(this);
         Button btn_versListeProduits = (Button)findViewById(R.id.btn_versListeProduits);
         btn_versListeProduits.setOnClickListener(this);
+        Button btn_versListeCommandes = (Button)findViewById(R.id.btn_versListeCommandes);
+        btn_versListeCommandes.setOnClickListener(this);
     }
 
     @Override
@@ -33,11 +35,15 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         switch(v.getId()) {
             case R.id.btn_versListUtilisateurs:
                 Log.e("WelcomeActivity", "onCreate");
-                startActivity(new Intent(WelcomeActivity.this, ListActivity.class));
+                startActivity(new Intent(WelcomeActivity.this, PersonListActivity.class));
                 break;
             case R.id.btn_versListeProduits:
                 Log.e("WelcomeActivity", "onCreate");
                 startActivity(new Intent(WelcomeActivity.this, ProductListActivity.class));
+                break;
+            case R.id.btn_versListeCommandes:
+                Log.e("WelcomeActivity", "onCreate");
+                startActivity(new Intent(WelcomeActivity.this, OrderListActivity.class));
                 break;
         }
     }
